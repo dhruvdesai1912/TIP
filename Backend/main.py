@@ -49,7 +49,7 @@ def add_data():
     missing_fields = [field for field in required_fields if not new_data.get(field)]
 
     if missing_fields:
-        return jsonify({'error': f'Missing or empty fields: {", ".join(missing_fields)}'}), 400
+        return jsonify({'error': f'Missing or empty field: {", ".join(missing_fields)}'}), 400
 
     collection.insert_one(new_data)
     return jsonify({'message': 'Data added successfully!'}), 201
